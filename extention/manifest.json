@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Input Button Appender",
+  "version": "1.0",
+  "description": "Appends a button inside input fields",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
