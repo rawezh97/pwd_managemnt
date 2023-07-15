@@ -26,6 +26,12 @@ Route::get('/main', [MainController::class , 'index']);
 Route::get('/create', [MainController::class , 'create']);
 Route::post('/store', [MainController::class , 'store']);
 
+Route::post('/edit', [MainController::class , 'edit'])->middleware('edit.check');
+Route::post('/update/{id}', [MainController::class , 'update']);
+
+Route::post('/delete/{id}', [MainController::class , 'delete']);
+
+Route::get('/export', [MainController::class , 'export']);
 
 
 

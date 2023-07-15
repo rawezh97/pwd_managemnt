@@ -24,7 +24,7 @@
                 <input class="log_input" type='password' name="password" id="password">
             </div>
             <div class="submit">
-                <input type="submit"  value="Submit">
+                <input type="submit" class="login_btn" value="Submit">
                 <p>Dont have account <a href="/register">Regster</a></p>
             </div>
         </form>

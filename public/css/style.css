@@ -49,7 +49,7 @@ input.log_input.email {
     margin-left: 47px;
 }
 
-input[type="submit"] {
+.login_btn {
     height: 35px;
     text-align: center;
     width: 135px;
@@ -58,6 +58,27 @@ input[type="submit"] {
     margin-top: 14px;
     background: linear-gradient(45deg, #df59c7, #7d87ff);
     margin-bottom: 8px;
+}
+input.update_btn {
+    top: right;
+    height: 35px;
+    text-align: center;
+    width: 135px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 14px;
+    /* background: linear-gradient(to right, #00ff08, #00ff14, #31f300,#31f300,#5cf947); */
+    background: linear-gradient(to right, #00a00d, #00a00d, #00a00d,#00a00d,#00a00d);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font: small-caps bold 18px/1 sans-serif;
+    color: white;
+
+}
+input.update_btn:hover {
+    /* background-color: #000000; */
+    background: linear-gradient(to right, #006308, #006308, #006308,#006308,#006308);
+    animation-play-state: running; 
 }
 .submit {
     text-align: center;
@@ -81,7 +102,14 @@ img.login_img.reg {
     background: forestgreen;
     height: 18px;
 }
-
+.warning_message {
+    padding: 11px;
+    color: white;
+    width: 1272px;
+    text-align: center;
+    background: rgb(255, 166, 0);
+    height: 18px;
+}
 
 
 .log_reg {
@@ -157,7 +185,33 @@ a.create_btn {
     padding: 8px;
     margin: 3px 8px;
 }
-
+a.create_btn:hover {
+    background: #242323;
+}
+a.create_btn.c_color:hover {
+    background: #003cab;
+    animation: 2s;
+}
+a.create_btn.logout_color:hover {
+    background: #c50606;
+}
+img.basket {
+    width: 29px;
+    background : red;
+    border-radius:20px;
+    color: white;
+    margin-top: 11px;
+    margin-left: 9px;
+}
+img.basket:hover {
+    -webkit-filter: drop-shadow(0px -1px 7px rgba(251,20,0,5.5));
+}
+.action_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .create {display: contents;}
 
 .help {
@@ -217,4 +271,14 @@ input.create_input {
 input.edit_btn {
     background: lawngreen;
     margin: 0;
+}
+input.user_input {
+    height: 23px;
+    width: 228px;
+    /* width: 45vw; */
+    /* height: 30px; */
+    /* padding: 3px; */
+    font-size: 14px;
+    /* border: 1px solid gray; */
+    font-family: monospace;
 }

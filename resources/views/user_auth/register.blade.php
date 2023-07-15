@@ -34,7 +34,7 @@
                 @enderror
             </div>
             <div class="submit">
-                <input type="submit"  value="Submit">
+                <input type="submit" class="login_btn" value="Submit">
                 <p>Already have account <a href="/login">Login</a></p>
             </div>
         </form>
