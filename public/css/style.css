@@ -282,3 +282,20 @@ input.user_input {
     /* border: 1px solid gray; */
     font-family: monospace;
 }
+
+img.eyeimg {
+    background: aliceblue;
+    border-radius: 14px;
+}   
+
+.user_ac {
+    width: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+img.dropDOwn {
+    background: #7a7979;
+    border-radius: 14px;
+    width: 20px;
+}

@@ -23,6 +23,17 @@ class MainController extends Controller
         $user = User::find(Auth::id());
         return view('main.main' ,['data' => $data , 'user' => $user]);
     }
+
+    public function search(Request $request){
+        $user = User::find(Auth::id());
+        $search = $request->search;
+        $data = Manage::where(function($query) use ($search){
+            $query->where('source','like',"%$search%")->where('userid' , Auth::id());
+        })->get();
+
+        return view('main.main' , ['data' => $data , 'user'=>$user]);
+    }
+
     public function create()
     {
         $data = DB::table('manages')->where('userid' , Auth::id())->get();
@@ -43,6 +54,7 @@ class MainController extends Controller
 
         return redirect('/main')->with(['msg' => 'Created Successfully']);
     }
+    
     public function edit(Request $request)
     {
         $data = $request->except(['_token']);

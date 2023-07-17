@@ -27,7 +27,7 @@
         <a href="/main"><img src="/images/pwd_logo.png" class="img_logo" alt=""></a>
         
         <div class="search">
-            <form action="">
+            <form action="/search">
                 <input type="text" name="search" placeholder="Search" class="input_search">
             </form>
         </div>
@@ -40,7 +40,7 @@
                 <span class="email">{{$user->email}}</span> 
             </div>
             <div class="user_ac">
-                <span class="user"><a href="">?</a></span>
+                <span class="user"><a href=""><img class="dropDOwn" src="/images/down-arrow.png" alt=""></a></span>
 
             </div>
         </div>
@@ -78,6 +78,7 @@
                     <th>source</th>
                     <th>username</th>
                     <th>password</th>
+                    <th>Security</th>
                     <th>link</th>
                     <th>faviorte</th>
                 </tr>
