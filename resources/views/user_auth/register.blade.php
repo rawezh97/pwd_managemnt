@@ -15,23 +15,31 @@
             <div class="input_div">
                 <label class="log_lable" for="username">username</label>
                 <input class="log_input" type="text" name="username">
-                @error('username')
-                    {{$message}}
-                @enderror
+                <span class="error_msg">
+                    @error('username')
+                        {{$message}}
+                    @enderror
+                </span>
             </div>
             <div class="input_div">
                 <label class="log_lable" for="email">email</label>
                 <input class="log_input email" type="text" name="email">
-                @error('email')
-                        {{$message}}
-                @enderror
+                <span class="error_msg">
+                    @error('email')
+                            {{$message}}
+                    @enderror
+                </span>
             </div>
             <div class="input_div">
                 <label class="log_lable" for="password">password</label>
                 <input class="log_input" type="text" name="password">
-                @error('password')
-                    {{$message}}
-                @enderror
+
+                <span class="error_msg">
+                    @error('password')
+                        {{$message}}
+                    @enderror
+                </span>
+
             </div>
             <div class="submit">
                 <input type="submit" class="login_btn" value="Submit">

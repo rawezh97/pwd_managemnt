@@ -110,6 +110,12 @@ img.login_img.reg {
     background: rgb(255, 166, 0);
     height: 18px;
 }
+span.error_msg {
+    color: red;
+    margin-top: 10px;
+    margin-left: 7px;
+    font-weight: bold;
+}
 
 
 .log_reg {

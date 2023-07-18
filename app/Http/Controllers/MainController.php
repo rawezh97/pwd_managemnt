@@ -57,6 +57,7 @@ class MainController extends Controller
     
     public function edit(Request $request)
     {
+        $request->isMethod('post') ;
         $data = $request->except(['_token']);
         $arr = [];
         foreach ($data as $value) {
@@ -73,7 +74,7 @@ class MainController extends Controller
     
     public function update(Request $request,$id)
     {
-        
+        $request->isMethod('post') ;
         $table = Manage::find($id);
         $table->source = $request->source;
         $table->username = $request->username;
@@ -88,6 +89,7 @@ class MainController extends Controller
     
     public function delete($id)
     {
+        
         Manage::destroy($id);
         return redirect('/edit')->with(['msg' => 'Successfully Deleted']);
     }

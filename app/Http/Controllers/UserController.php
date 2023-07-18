@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\registerrequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\registerrequest;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -22,14 +23,10 @@ class UserController extends Controller
 
     public function store(registerrequest $request)
     {
-        $request->ip() ;
-        $request->fullUrlWithQuery(['type' => 'phone']);
-        $request->fullUrlWithoutQuery('type');
+        $gg = $request->ip() ;
         $request->isMethod('post') ;
         $request->path() ;
-        $request->cookie('laravel_session') ;
         $request->getHost();
-        $request->old('username');
 
         $user = new User();
         $user->name = $request->username;
@@ -59,6 +56,7 @@ class UserController extends Controller
         // if (Auth::guard('admin')->user()) {
         //     return "welcome for Admin boss";
         // }
+        $request->isMethod('post') ;
         $request_out_token = $request->except(['_token']);
         if (Auth::attempt($request_out_token)) {
             return redirect('/main');
