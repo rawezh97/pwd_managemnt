@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class UserController extends Controller
         $user->_token = $request->_token;
         $user->save();
 
-        return redirect('/')->with(['msg' => 'Acount Sucessfully creted']);
+        return redirect('/login')->with(['msg' => 'Acount Sucessfully creted']);
         
     }
 
@@ -50,12 +51,13 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
-    public function check(Request $request)
+    public function check(LoginRequest $request)
     {
         // $req = $request->except(['_token']);
         // if (Auth::guard('admin')->user()) {
         //     return "welcome for Admin boss";
         // }
+        // dd($request->all());
         $request->isMethod('post') ;
         $request_out_token = $request->except(['_token']);
         if (Auth::attempt($request_out_token)) {

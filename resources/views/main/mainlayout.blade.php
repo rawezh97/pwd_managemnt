@@ -34,14 +34,113 @@
     
         <div class="acount_info">
             
-            <img src="/images/user.png" class="user_p" alt="">
-            <div class="ac_info">
-                <span class="username">{{$user->name}}</span> <br>
-                <span class="email">{{$user->email}}</span> 
+            <div class="left_pro_part">
+                <img src="/images/user.png" class="user_p" alt="">
+                <div class="ac_info">
+                    <span class="username">{{$user->name}}</span> <br>
+                    <span class="email">{{$user->email}}</span> 
+                </div>
+
             </div>
             <div class="user_ac">
-                <span class="user"><a href=""><img class="dropDOwn" src="/images/down-arrow.png" alt=""></a></span>
+                <span class="user"><a href="#" id="action" onclick="openForm()"><img class="dropDOwn" id="profile" src="/images/profile_pic.png" alt=""></a></span>
 
+
+                <div class="form-popup" id="myForm">
+                    <div class="form-container">
+                        <div class="p_head">
+                            <div class="profile_head">
+                              <img src="/images/user.png" class="user_p" alt="">
+                              <h1>Profile</h1>
+                            </div>
+                            <div class="num_item">
+                              <span class="pro_equa"><span class="Contain">{{count($data)}}</span></span>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="usr_info">
+                            <h3 for="username">Username : </h3><span class="pro_equa"> {{$user->name}}</span>
+
+                        </div>
+                      {{-- <input type="text" placeholder="Enter username" name="username" value="{{$user->name}}" required> --}}
+                        
+                      <div  class="usr_info">
+                          <h3 for="email"><b>Email : </b> <span></span></h3>
+                          <span class="pro_equa"> {{$user->email}}</span>                         
+                      </div>
+
+                      {{-- <input type="text" placeholder="Enter Email" name="email" value="{{$user->email}}" required> --}}
+                      <div class="usr_info">
+                          <h3 for="psw"><b>Created at : </b></h3>
+                          <span class="pro_equa"> {{ $user->created_at}}</span>
+                      </div>
+
+                      {{-- <input type="password" placeholder="Enter Password" value="{{$user->password}}" name="psw" required> --}}
+                  
+                      <button id="action" onclick="modifyForm()" class="btn">Modify</button>
+                      {{-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> --}}
+                    </div>
+                  </div>
+
+
+                  
+                  <div class="form-popup" id="modifyForm">
+                    <form action="/action_page.php" class="form-container">
+                        <div class="p_head">
+                            <div class="profile_head">
+                              <img src="/images/user.png" class="user_p" alt="">
+                              <h1>Profile</h1>
+                            </div>
+                            <div class="num_item">
+                              <span class="pro_equa"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="usr_info">
+                            <h4 for="username">Username : </h4>
+                        </div>
+                      <input type="text" placeholder="Enter username" name="username" value="{{$user->name}}" required>
+                        
+                      <div  class="usr_info">
+                          <h4 for="email">Email :</h4>               
+                      </div>
+                      <input type="text" placeholder="Enter Email" name="email" value="{{$user->email}}" required>
+
+                      <div class="usr_info">
+                          <h4 for="psw"><b>New Password : </b></h4>
+                      </div>
+                      <input type="password" placeholder="Enter Password" value="" name="psw" required>
+                  
+                      <button type="submit" class="btn up">Update</button>
+                      <button type="button" class="btn cancel" onclick="closeForm()">Delete Acount</button>
+                    </form>
+                  </div>
+                  <script>
+                    function openForm() {
+                      document.getElementById("myForm").style.display = "block";
+                      document.getElementById("profile").src = "/images/close.png";
+                      document.getElementById("action").onclick = closeForm;
+                      
+                    }
+                    function modifyForm() {
+                    //   document.getElementById("myForm").style.display = "none";
+                      document.getElementById("modifyForm").style.display = "block";
+                      document.getElementById("action").onclick = closeForm;
+                    //   document.getElementById("profile").src = "/images/close.png";
+                    //   document.getElementById("action").onclick = "closeForm()";
+                    }
+                    
+                    function closeForm() {
+                        document.getElementById("action").onclick = openForm;
+                        document.getElementById("profile").src = "/images/profile_pic.png";
+                      document.getElementById("myForm").style.display = "none";
+                      document.getElementById("modifyForm").style.display = "none";
+                    
+                    }
+                    </script>
+            
+                
             </div>
         </div>
     </div>
@@ -64,13 +163,13 @@
             }
         </script>
 
+
         <div class="help">
             
             <a href="" class="create_btn help">help</a>
         </div>
     </div>
 
-    
     <div class="tb">
         <table>
             <tbody>
@@ -78,7 +177,9 @@
                     <th>source</th>
                     <th>username</th>
                     <th>password</th>
-                    <th>Security</th>
+                    @if (!Request::is('create'))
+                        <th>Security</th>
+                    @endif
                     <th>link</th>
                     <th>faviorte</th>
                 </tr>

@@ -9,16 +9,16 @@
         @foreach ($arr as $value)
             @if ($item->id == $value)
 
-                <form action="/update/{{$item->id}}" method="POST">
+                <form action="/update/{{$item->id}}" method="get">
                     
                     @csrf
                             <tr>
                                 <td><input type="text" class="user_input"  name="source" value="{{$item->source}}"></td>
-                                <td><input type="text" class="user_input" name="username" value="{{$item->username}}"></td>
+                                <td><input type="text" class="user_input" name="username" value="{{decrypt($item->username)}}"></td>
                                 
                                 <td>
-                                    <input type="text" class="user_input" name="password" id="password{{$item->id}}" value="{{$item->password}}">
-                                    <span><a href="#" onclick="getpass()">genterate</a></span>
+                                    <input type="text" class="user_input" name="password" id="password{{$item->id}}" value="{{decrypt($item->password)}}">
+                                    {{-- <span><a href="#" onclick="getpass()">genterate</a></span>
                                     <script>
                                         <?php $pasword = "password{{$item->id}}" ?>
                                         alert($pasword);
@@ -34,9 +34,33 @@
                                             document.getElementById('password32').value = pass;
                                         }
 
-                                    </script>
+                                    </script> --}}
                                 </td>
-                                <td><input type="text" class="user_input" name="link" value="{{$item->link}}"></td>
+                                <td>
+                    @php
+                        $password = decrypt($item->password);
+                        $reg = preg_match('/[\'^£$%&*()}{@#~?><,|=_+¬-]/' , $password);
+                        $capital = preg_match('/[A-Z]/', $password);
+                        $num_check = preg_match('/[0-9]/', $password);
+
+                        if(Str::length($password) > 5 && $reg && $capital && $num_check){
+                            echo "<span style='color: green'>password is Strong</span>";
+                        }
+                        elseif (Str::length($password) > 9 && !$reg && $capital && $num_check) {
+                            echo "<span style='color: rgb(255, 145, 0)'>password is Mediuam</span>";
+                        }
+                        elseif (Str::length($password) > 10) {
+                            echo "<span style='color: rgb(255, 145, 0)'>password is Mediuam</span>";
+                        }
+                        else {
+                            echo "<span style='color: rgb(255, 64, 16)'>password is Weak</span>";
+
+                        }
+                    
+                     @endphp
+                    
+                </td>
+                                <td><input type="text" class="user_input" name="link" value="{{decrypt($item->link)}}"></td>
                                 
                                 <td> 
                                     <input type="submit" class="update_btn" value="update">

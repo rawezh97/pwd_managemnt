@@ -27,7 +27,6 @@ class registerrequest extends FormRequest
             'username' => 'required|max:25',
             'email' => 'required|email|unique:users,email',
             'password' => 'required'
-
         ];
     }
     public function messages()

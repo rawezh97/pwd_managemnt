@@ -27,9 +27,9 @@ Route::get('/create', [MainController::class , 'create']);
 Route::post('/store', [MainController::class , 'store']);
 
 Route::post('/edit', [MainController::class , 'edit'])->middleware('edit.check');
-Route::post('/update/{id}', [MainController::class , 'update']);
+Route::get('/update/{id}', [MainController::class , 'update']);
 
-Route::post('/delete/{id}', [MainController::class , 'delete']);
+Route::get('/delete/{id}', [MainController::class , 'delete']);
 
 Route::get('/export', [MainController::class , 'export']);
 Route::get('/search', [MainController::class , 'search']);

@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use export;
 use App\Models\User;
 use App\Models\Manage;
-use Psy\VersionUpdater\Downloader\FileDownloader;
 use Vtiful\Kernel\Excel;
 use Illuminate\Http\Request;
+use GuzzleHttp\Promise\Create;
+use function PHPSTORM_META\type;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateRequest;
+use App\Http\Requests\UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use Rap2hpoutre\FastExcel\FastExcel;
-use Illuminate\Support\Facades\Crypt;
 
-use function PHPSTORM_META\type;
+use Illuminate\Support\Facades\Crypt;
+use Psy\VersionUpdater\Downloader\FileDownloader;
 
 class MainController extends Controller
 {
@@ -21,10 +24,12 @@ class MainController extends Controller
     {
         $data = DB::table('manages')->where('userid' , Auth::id())->get();
         $user = User::find(Auth::id());
+
         return view('main.main' ,['data' => $data , 'user' => $user]);
     }
 
     public function search(Request $request){
+        
         $user = User::find(Auth::id());
         $search = $request->search;
         $data = Manage::where(function($query) use ($search){
@@ -41,13 +46,14 @@ class MainController extends Controller
         return view('main.create',['data' => $data , 'user' => $user]);
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
+        $request->method('post');
         $table = new Manage();
         $table->source = $request->source;
-        $table->username = $request->username;
-        $table->password = $request->password;
-        $table->link = $request->link;
+        $table->username = encrypt($request->username);
+        $table->password = encrypt($request->password);
+        $table->link = encrypt($request->link);
         $table->userid = Auth::id();
 
         $table->save();
@@ -74,11 +80,12 @@ class MainController extends Controller
     
     public function update(Request $request,$id)
     {
-        $request->isMethod('post') ;
+        // $request->isMethod('post') ;
+        // dd($request->all());        
         $table = Manage::find($id);
         $table->source = $request->source;
         $table->username = $request->username;
-        $table->password = $request->password;
+        $table->password = Crypt::encrypt($request->password);
         $table->link = $request->link;
         $table->userid = Auth::id();
 

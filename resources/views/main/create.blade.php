@@ -131,7 +131,7 @@
             <td><input type="text" name="source" placeholder="Source" class="create_input"></td>
             <td><input type="text" name="username" placeholder="Username" class="create_input"></td>
             <td><input type="password" name="password" placeholder="Password" class="create_input"></td>
-            <td><input type="text" name="link" placeholder="link" class="create_input"></td>  
+            <td><input type="text" name="link" placeholder="link" class="create_input"></td> 
             <td><input type="submit" class="edit_btn"></td>
                 
         </tr>   
