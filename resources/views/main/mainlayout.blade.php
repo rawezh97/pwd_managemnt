@@ -147,13 +147,13 @@
 
     <div class="option_div">
         <div class="create">
-            <a href="/create" class="create_btn c_color ">Create</a>
+            <a href="/create" class="create_btn c_color ">Create<img src="/images/dashboard.png" class="logo_png create_logo" alt=""></a>
         </div>
         
         <div class="modifie_btn">
-            <a href="#" class="create_btn" onclick="submitFunction()">Edit</a>
+            <a href="#" class="create_btn" onclick="submitFunction()">Edit <img src="/images/edit.png" class="logo_png" alt=""></a>
             <a href="/create" class="create_btn">Copy</a>
-            <a href="/export" class="create_btn">Export</a>
+            <a href="/export" class="create_btn">Export <img class="logo_png" src="/images/file-export.png" alt=""></a>
             <a href="/create" class="create_btn">More</a>
         </div>
 
@@ -163,7 +163,7 @@
             }
         </script>
 
-
+        
         <div class="help">
             
             <a href="" class="create_btn help">help</a>
