@@ -97,6 +97,13 @@ img.login_img.reg {
     background-color: #e9bbbb;
     padding: 7px;
 }
+.suces_message{
+    font-weight: 900;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    background-color: #15ef44b3;
+    padding: 7px;
+}
 .sucess_message {
     padding: 11px;
     color: white;
@@ -229,6 +236,14 @@ a.create_btn.c_color:hover {
 }
 a.create_btn.logout_color:hover {
     background: #c50606;
+    transition: 0.3s;
+}
+button.btn.up.rb:hover {
+    border: 1px solid orange;
+
+}
+button.btn.cancel.db:hover {
+    border: 1px solid red;
 }
 img.basket {
     width: 29px;
@@ -321,7 +336,10 @@ input.user_input {
 img.eyeimg {
     background: aliceblue;
     border-radius: 14px;
-}   
+} 
+img.copy {
+    width: 16px;
+}  
 
 .user_ac {
     width: 40px;
@@ -356,9 +374,31 @@ a.getstart{
         margin: 5px 5px 0px 0px;
         justify-content: center;
         cursor: pointer;
+        border-radius: 9px;
+        border: 1px solid gray;
+}
+.getstart_rigth {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+a.getstart.about {
+    background: #404040;
+    border: 1px solid #0000ff61;
+}
+
+a.getstart.about:hover {
+    border: 1px solid blue;
+    background: #262525;
+    color: #fffdfd;
+    transition: 0.5s;
 }
 a.getstart:hover{
     background: #002f86;
+    border: 1px solid rgb(6, 164, 255);
+    background: #262525;
+    transition: 0.5s;
+
 }
 
 
@@ -394,7 +434,7 @@ a.getstart:hover{
   .form-container {
     max-width: 300px;
     padding: 10px;
-    border: 3px solid #424642;
+    border: 3px solid #00ffff94;
     background-color: #222020;
 
 }
@@ -403,7 +443,7 @@ img.logo_png {
 }
   /* Full-width input fields */
   .form-container input[type=text], .form-container input[type=password] {
-    width: 83%;
+    width: 92%;
     padding: 13px;
     margin: 0px 0 0px 0;
     border: none;
@@ -426,6 +466,7 @@ img.logo_png {
     width: 100%;
     margin-bottom:10px;
     opacity: 0.8;
+    border: 1px solid rgb(37, 39, 37);
   }
   h4 {
     margin-bottom: 10px;
@@ -441,7 +482,9 @@ button.btn.up {
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
-    background-color: #32bb36;
+    background-color: #111211;
+    transition: 0.5s;
+    border: 1px solid lime;
   }
 
   .img_p {
@@ -494,8 +537,7 @@ span.text2 {
     width: 500px;
     margin-left: 90px;
     margin-right: 90px;
-    /* border: 2px solid red;
-    border-radius: 255px; */
+    border-radius: 255px;
 }
 img.index_img {
     width: 500px;
@@ -504,19 +546,60 @@ img.index_img {
     margin-left: 40px;
 }
 img.peshawa {
-    width: 250px;
+    width: 280px;
 }
 
-footer {
+td.lr {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+/* footer{
+    background-color: #0a0a0a;
+    color: white;
+}
+
+img.footer_img {
+    width: 332px;
+}
+
+.main_foot {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 19px;
+}
+
+.foot_img {
+}
+
+.foot_info {
+    width: 426px;
+}
+
+.miidle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+} */
+
+
+.foot_fotter {
+    display: flex;
     justify-content: center;
+    /* background: radial-gradient(black, #32242400); */
+    padding: 27px;
 }
 
 
+/* .paragraph.first {
+    border: 2px solid red;
+    box-shadow: 0px 0px 38px 16px #ff1616;
+}
 
-
-/* .paragraph.test {
+.paragraph.test {
     border: 2px solid #3fff00;
     box-shadow: 0px 0px 38px 16px #00ff4e;
 }
@@ -524,4 +607,10 @@ footer {
 .paragraph.test2 {
     border: 2px solid #4845ff;
     box-shadow: 0px 0px 38px 16px #00dcff;
-} */
+}  */
+
+
+
+
+
+/* Fotter test */

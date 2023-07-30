@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserModiffyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,10 @@ Route::get('/delete/{id}', [MainController::class , 'delete']);
 Route::get('/export', [MainController::class , 'export']);
 Route::get('/search', [MainController::class , 'search']);
 
+Route::post('/update_User/{id}', [UserModiffyController::class , 'User_uodate']);
+Route::post('/user_delete/{id}', [UserModiffyController::class , 'user_delete']);
 
+Route::get('/test', [MainController::class , 'test']);
 
 
 

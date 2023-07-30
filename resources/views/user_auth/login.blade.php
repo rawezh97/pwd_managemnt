@@ -11,7 +11,10 @@
                 <div class="error_message">
                     {{session()->get('msg')}}
                 </div>
-                    
+            @elseif (session()->has('smsg'))
+                <div class="suces_message">
+                    {{session()->get('smsg')}}
+                </div>
             @endif()
             @csrf
             <img src="images/pwd.jpg" class="login_img" alt="">

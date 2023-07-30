@@ -8,6 +8,7 @@
     </div>
     <div class="getstart_rigth">
         <a href="/login" class="getstart">Get Started</a>
+        <a href="/login" class="getstart about">About Us</a>
     </div>
 </header>
 
@@ -23,7 +24,7 @@
     </div>
 
     <div class="secound_part">
-        <div class="paragraph">
+        <div class="paragraph first">
             <h2 class="p_head">Password Auto checkup </h2>
             <span class="description"> check password if it's a weak password warning 
                 and also provide the strong password
@@ -66,10 +67,12 @@
 
 
 
-<hr>
-<footer>
-    <img src="/images/peshawa.png" class="peshawa" alt="">
-</footer>
+
+
+    <div class="foot_fotter">
+        <img src="/images/peshawa.png" class="peshawa" alt="">
+
+    </div>
 
 
 

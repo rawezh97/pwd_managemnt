@@ -86,7 +86,8 @@
 
                   
                   <div class="form-popup" id="modifyForm">
-                    <form action="/action_page.php" class="form-container">
+                    <form action="/update_User/{{Auth::id()}}" method="post" class="form-container">
+                        @csrf
                         <div class="p_head">
                             <div class="profile_head">
                               <img src="/images/user.png" class="user_p" alt="">
@@ -110,10 +111,10 @@
                       <div class="usr_info">
                           <h4 for="psw"><b>New Password : </b></h4>
                       </div>
-                      <input type="password" placeholder="Enter Password" value="" name="psw" required>
+                      <input type="password" placeholder="Enter Password"  name="password" value="" required>
                   
-                      <button type="submit" class="btn up">Update</button>
-                      <button type="button" class="btn cancel" onclick="closeForm()">Delete Acount</button>
+                      <button type="submit" class="btn up rb">Update</button>
+                      <button type="button" class="btn cancel db" onclick="closeForm()">Delete Acount</button>
                     </form>
                   </div>
                   <script>
@@ -181,7 +182,7 @@
                         <th>Security</th>
                     @endif
                     <th>link</th>
-                    <th>faviorte</th>
+                    <th>Select</th>
                 </tr>
                 @yield('tr')
                 {{-- @isset($data)

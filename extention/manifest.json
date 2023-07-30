@@ -1,14 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "Input Button Appender",
+    "manifest_version": 2,
+  "name": "Chrome Plugin",
+  "description": "Testing Plugin",
   "version": "1.0",
-  "description": "Appends a button inside input fields",
-  "permissions": ["activeTab"],
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["contentScript.js"],
-      "run_at": "document_end"
-    }
-  ]
-}
+  "content_scripts":[
+      {
+        "matches":[
+          "<all_urls>"
+        ],
+        "js": ["content.js"]
+      }
+    ],
+  "browser_action": {
+      "default_icon": "/images/ico.png",
+      "default_popup": "popup.html"
+    },
+  "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+  "permissions": [
+      "activeTab",
+      "storage" 
+    ]
+  }

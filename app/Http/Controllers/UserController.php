@@ -36,7 +36,7 @@ class UserController extends Controller
         $user->_token = $request->_token;
         $user->save();
 
-        return redirect('/login')->with(['msg' => 'Acount Sucessfully creted']);
+        return redirect('/login')->with(['smsg' => 'Acount Sucessfully creted']);
         
     }
 

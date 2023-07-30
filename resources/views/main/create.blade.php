@@ -124,7 +124,7 @@
 
 @extends('main.main')
 @section('con')
-<form action="/store" method="POST">
+<form action="/store" id="createForm" method="POST">
     @csrf
         <tr>
 
@@ -136,4 +136,26 @@
                 
         </tr>   
 </form>
+<script>
+    window.onload = function() {
+
+// Check for LocalStorage support.
+if (localStorage) {
+
+  // Add an event listener for form submissions
+  document.getElementById('createForm').addEventListener('submit', function() {
+    // Get the value of the name field.
+    var source = document.getElementById('source').value;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var link = document.getElementById('link').value;
+
+    // Save the name in localStorage.
+    localStorage.setItem([source,username,password,link]);
+  });
+
+}
+
+}
+</script>
 @endsection

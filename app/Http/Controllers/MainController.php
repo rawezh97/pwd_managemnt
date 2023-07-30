@@ -110,4 +110,10 @@ class MainController extends Controller
         ];
         return response()->download(public_path('data.csv'), 'data.csv', $headers);
     }
+
+
+
+    public function test(){
+        return view('extention.index');
+    }
 }
