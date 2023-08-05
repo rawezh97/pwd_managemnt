@@ -13,7 +13,7 @@
 <div class="big_div">
 
     <div class="big_head">
-        <a href="/create"><img src="/images/pwd_logo.png" class="img_logo" alt=""></a>
+        <a href="/start"><img src="/images/pwd_logo.png" class="img_logo" alt=""></a>
         
         <div class="search">
             <form >
@@ -432,53 +432,6 @@
         }
     }
 
-
-    function create(){
-        // let check = document.querySelectorAll('input[name="select"]:checked');
-        // alert(nums);
-        // check.forEach((checkbox) => {nums.push(checkbox.value)});
-        // alert(nums);
-
-        // Retrieve saved data from local storage
-        const savedData = JSON.parse(localStorage.getItem('savedData'));
-
-        // Get the target element where the rows will be displayed
-        const dataList = document.getElementById('dataList');
-
-        // Clear the existing data from the view
-        dataList.innerHTML = '';
-
-        // Display the saved data in the corresponding <td> elements
-        var count = 0 ;
-        if (savedData) {
-            savedData.forEach(item => {
-                count += 1 ;
-
-                   
-
-                        // alert('checked');
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                        <td><input value="" name="username"></input></td>
-                        <td><input value="" name="password"></input></td>
-                        <td>
-                                <span id="secu${count}" onload="check(${count})"></span>    
-                        </td>
-                            <td><input value="" name="link"></input></td>
-                            <td><input value="" name="note"></input></td>
-                            <td><button type="submit" class="update" onclick='updateData(event,${count-1})'>update</button></td>
-                        `;
-                        dataList.appendChild(row);
-                    
-            });
-        }
-    }
-
-
-
-
-
-
     function updateData(event,id) {
 
         const localStorage_data = localStorage.getItem('savedData');
@@ -605,7 +558,6 @@
 
 
 {{-- 333333 --}}
-
 
 
 
