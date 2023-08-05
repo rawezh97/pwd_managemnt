@@ -16,29 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class , 'index']);
-Route::get('/register', [UserController::class , 'register']);
-Route::post('/register', [UserController::class , 'store']);
-Route::get('/login', [UserController::class , 'login']);
-Route::post('/login', [UserController::class , 'check']);
-Route::get('/logout', [UserController::class , 'logout']);
 
-Route::get('/main', [MainController::class , 'index']);
+Route::get('/', [MainController::class , 'index']);
+Route::get('/start', [MainController::class , 'start']);
 Route::get('/create', [MainController::class , 'create']);
-Route::post('/store', [MainController::class , 'store']);
-
-Route::post('/edit', [MainController::class , 'edit'])->middleware('edit.check');
-Route::get('/update/{id}', [MainController::class , 'update']);
-
-Route::get('/delete/{id}', [MainController::class , 'delete']);
-
-Route::get('/export', [MainController::class , 'export']);
-Route::get('/search', [MainController::class , 'search']);
-
-Route::post('/update_User/{id}', [UserModiffyController::class , 'User_uodate']);
-Route::post('/user_delete/{id}', [UserModiffyController::class , 'user_delete']);
-
-Route::get('/test', [MainController::class , 'test']);
 
 
 

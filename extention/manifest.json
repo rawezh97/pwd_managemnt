@@ -1,26 +1,26 @@
 {
     "manifest_version": 2,
-  "name": "Chrome Plugin",
-  "description": "Testing Plugin",
-  "version": "1.0",
-  "content_scripts":[
-      {
-        "matches":[
-          "<all_urls>"
-        ],
-        "js": ["content.js"]
-      }
+    "name": "My Strong Password Generator",
+    "version": "1.0",
+    "description": "Generate strong passwords and save them in LocalStorage.",
+    "icons": {
+      "48": "/images/main_logo.png",
+      "128": "/images/main_logo.png"
+    },
+    "permissions": [
+      "storage",
+      "activeTab",
+      "clipboardWrite"
     ],
-  "browser_action": {
-      "default_icon": "/images/ico.png",
+    "browser_action": {
       "default_popup": "popup.html"
     },
-  "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-      },
-  "permissions": [
-      "activeTab",
-      "storage" 
-    ]
+    "content_scripts": [
+      {
+        "matches": ["http://localhost:8000/*"], // Adjust this to the website where you want to interact with the extension
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": ["popup.html", "styles.css", "icon.png"]
   }
+  

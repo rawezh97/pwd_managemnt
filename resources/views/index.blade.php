@@ -7,8 +7,8 @@
         <img src="/images/pwd_logo.png" class="index_logo" alt="">
     </div>
     <div class="getstart_rigth">
-        <a href="/login" class="getstart">Get Started</a>
-        <a href="/login" class="getstart about">About Us</a>
+        <a href="/start" class="getstart">Get Started</a>
+        <a href="/#" class="getstart about">About Us</a>
     </div>
 </header>
 

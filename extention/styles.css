@@ -1,0 +1,48 @@
+body {
+    width: 269px;
+    height: 214px;
+    background: #25252a;
+  }
+  .img_logo {
+    width : 260px;
+}
+
+.inp_fild {
+    display: flex;
+    margin-top: 55px;
+    margin-bottom: 13px;
+    align-items: center;
+} 
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+  }
+  
+  input {
+    width: 80%;
+    padding: 5px;
+    border-radius: 6px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    border: none;
+  }
+  button#generateButton {
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 38px;
+    background: #07cb3aeb;
+    border-radius: 7px;
+    border: none;
+}
+
+
+
+
+
+  

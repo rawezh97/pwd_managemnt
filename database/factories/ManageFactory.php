@@ -19,7 +19,7 @@ class ManageFactory extends Factory
             'username' => encrypt($this->faker->name()),
             'password' => encrypt($this->faker->password()), // password
             'link' => encrypt('http://'.$this->faker->domainName()),
-            'userid' => 20,
+            'userid' => 22,
 
             
         ];
