@@ -13,6 +13,5 @@ class MainController extends Controller
     {
         return view('main.main');
     }
-
-
+    
 }

@@ -84,14 +84,15 @@
                         </a>    
                     </td>
                         <td>
-                        <span id="secu${count}" onload="check(${count})">sdf</span>
+                        <span id="secu${count}" onload="check(${count})"></span>
                         </td>
-                        <td>${item.link}</td>
+                        
+                        <td class="link"><div></div>${item.link}<a href="${item.link}" target="_blank" class="create_btn edit">Open <img src="/images/edit.png" class="logo_png" alt=""></a></td>
                         <td>${item.note}</td>
                     <td class="lr">
                         <div></div>
                         <a href="#" class="create_btn edit" onclick="edit_localstorage(${count})">Edit <img src="/images/edit.png" class="logo_png" alt=""></a>
-                        <a href="#" class="" onclick="delete_localstorage(${count})"><img src="/images/red_basket.png" class="basket" alt=""> </a>
+                        <a href="#" class="confirm" onclick="delete_localstorage(${count})"><img src="/images/red_basket.png" class="basket" alt=""> </a>
                     </td>
                    <!-- <td><input type="checkbox" name="select" value="${count}" id=""></td> -->
                 `;
@@ -115,7 +116,7 @@
         </div>
         
         <div class="modifie_btn">
-            <a href="#" class="create_btn" onclick="fileInput.click()">Upload  <input type="file" id="fileInput" hidden accept=".json" /><img src="/images/edit.png" class="logo_png" alt=""></a>
+            <a href="#" class="create_btn" title="Note that all your current data will disapear and the content of the file displyed " onclick="fileInput.click()">Upload  <input type="file" id="fileInput" hidden accept=".json" /><img src="/images/edit.png" class="logo_png" alt=""></a>
             {{-- <a href="/create" class="create_btn">Copy</a> --}}
             <a href="#" class="create_btn" onclick="exportLocalStorageData()">Export <img class="logo_png" src="/images/file-export.png" alt=""></a>
             {{-- <a href="#" class="create_btn">More</a> --}}
@@ -254,14 +255,15 @@
                         </a>    
                     </td>
                         <td>
-                        <span id="secu${count}" onload="check(${count})">sdf</span>
+                        <span id="secu${count}" onload="check(${count})"></span>
                         </td>
-                        <td>${item.link}</td>
+                        <td class="link"><div></div>${item.link}<a href="${item.link}" target="_blank" class="create_btn edit">Open <img src="/images/share.png" class="logo_png" alt=""></a></td>
+
                         <td>${item.note}</td>
                     <td class="lr">
                         <div></div>
                         <a href="#" class="create_btn edit" onclick="edit_localstorage(${count})">Edit <img src="/images/edit.png" class="logo_png" alt=""></a>
-                        <a href="#" class="" onclick="delete_localstorage(${count})"><img src="/images/red_basket.png" class="basket" alt=""> </a>
+                        <a href="#" class="confirm" onclick="delete_localstorage(${count})"><img src="/images/red_basket.png" class="basket" alt=""> </a>
                     </td>
                    <!-- <td><input type="checkbox" name="select" value="${count}" id=""></td> -->
                 `;
@@ -273,13 +275,14 @@
     // Load the view when the page loads
     window.onload = function() {
         updateView();
+        window.history.replaceState({}, document.title, "/" + "start");
+
         var count = JSON.parse(localStorage.getItem("savedData"));
         check(count.length);
 
         
     };
 </script>
-
 
 
 <script>
@@ -390,20 +393,22 @@
                         // alert('checked');
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                        <td><input value="${item.username}" name="username"></input></td>
-                        <td><input value="${item.password}" name="password"></input></td>
+                        <td><input value="${item.username}" name="username" class=""></input></td>
+                        <td><input value="${item.password}" name="password" class=""></input></td>
                         <td>
-                            <a href="#" class="#" id="action2" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
+                            <a href="#" class="#" id="action2" onmouseover="openForm2()" onmouseout="closeForm2()" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
 
                         </td>
-                            <td><input value="${item.link}" name="link"></input></td>
-                            <td><input value="${item.note}" name="note"></input></td>
+                            <td><input value="${item.link}" name="link" class=""></input></td>
+                            <td><input value="${item.note}" name="note" class=""></input></td>
                             <td><button type="submit" class="update" onclick='updateData(event,${count-1})'>update</button></td>
                         `;
                         dataList.appendChild(row);
                     }
             });
         }
+        window.history.replaceState({}, document.title, "/" + "start");
+
     }
 
     function updateData(event,id) {
@@ -441,13 +446,19 @@
     }
 
     function delete_localstorage(nums){
-        let myArray = JSON.parse(localStorage.getItem('savedData')) || [];
-        const rowIndexToRemove = nums-1;
-        if (rowIndexToRemove >= 0 && rowIndexToRemove < myArray.length) {
-        myArray.splice(rowIndexToRemove, 1);
+
+        if (confirm('Are you sure?')) {
+            let myArray = JSON.parse(localStorage.getItem('savedData')) || [];
+            const rowIndexToRemove = nums-1;
+            if (rowIndexToRemove >= 0 && rowIndexToRemove < myArray.length) {
+            myArray.splice(rowIndexToRemove, 1);
+            }
+            localStorage.setItem('savedData', JSON.stringify(myArray));
+            window.location.reload();
+            
+        } else {
+            
         }
-        localStorage.setItem('savedData', JSON.stringify(myArray));
-        window.location.reload();
 
     }
     function copypwd(id){
@@ -562,7 +573,7 @@
             <td><input type="text" name="username" placeholder="Username" class="create_input"></td>
             <td><input type="password" name="password" onkeydown="check()" placeholder="Password" class="create_input"></td>
             <td>
-                <a href="#" class="#" id="action2" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
+                <a href="#" class="#" id="action2" onmouseover="openForm2()" onmouseout="closeForm2()" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
 
             </td>
             <td><input type="text" name="link" placeholder="link" class="create_input"></td> 

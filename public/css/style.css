@@ -112,6 +112,10 @@ button.update_btn {
     background: #006308;
     transition: 0.5s;
 }
+.update_btn:hover{
+    background: #006308;
+    transition: 0.5s;
+}
 input.update_btn:hover {
     /* background-color: #000000; */
     background: linear-gradient(to right, #006308, #006308, #006308,#006308,#006308);
@@ -246,6 +250,7 @@ span.email {
 
 .modifie_btn {
     display: flex;
+    align-items: center;
 }
 
 .option_div {
@@ -263,6 +268,7 @@ a.create_btn {
     margin: 3px 8px;
     border-radius: 7px;
 }
+
 a.create_btn:hover {
     background: #242323;
     transition: 0.4s;
@@ -349,9 +355,15 @@ table, th, td {
     border: 1px solid rgb(32, 30, 30);
     border-collapse: collapse;
     padding: 12px;
+    
   }
 .img_logo {
     width : 460px;
+}
+td.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 input.input_search {
     width: 500px;
@@ -414,7 +426,7 @@ header.index_header {
 img.git {
     width: 67px;
     padding-right: 10px;
-    padding-top: 3px;
+    padding-top: 4px;
 }
 img.git:hover {
     transform: scale(1.03);
