@@ -13,8 +13,6 @@ class MainController extends Controller
     {
         return view('main.main');
     }
-    public function create(){
-        return view('main.create');
-    }
+
 
 }

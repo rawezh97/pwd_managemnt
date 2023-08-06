@@ -261,6 +261,7 @@ a.create_btn {
     text-decoration: none;
     padding: 8px;
     margin: 3px 8px;
+    border-radius: 7px;
 }
 a.create_btn:hover {
     background: #242323;
@@ -358,6 +359,7 @@ input.input_search {
     background: black;
     color: blanchedalmond;
     animation-delay: 14s;
+    margin-right: 9px;
 }
 input.create_input {
     color: black;
@@ -408,6 +410,17 @@ header.index_header {
 
 .index_logo {
     width: 383px;
+}
+img.git {
+    width: 67px;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+img.git:hover {
+    transform: scale(1.03);
+}
+img.index_img.hub {
+    width: 444px;
 }
 a.getstart{
         text-decoration: none;
@@ -477,10 +490,45 @@ a.getstart:hover{
     
 
   }
+  .form-popup2 {
+    display: none;
+    position: fixed;
+    bottom: 21px;
+    right: 500px;
+    z-index: 0;
+    top: 275px;
+    border-radius: 3px 0px 9px 9px;
+    width: 545px;
+    
+
+  }
+  h3.info {
+    text-align: center;
+    color: lime;
+}
   
+h3{
+    text-align: center;
+}
+img#profile2 {
+    width: 33px;
+}
+span.example {
+    color: orange;
+}
   /* Add styles to the form container */
   .form-container {
     max-width: 300px;
+    padding: 10px;
+    padding-top: 0px;
+    border: 3px solid #0f101094;
+    background-color: #222020;
+    color: white;
+
+
+}
+.form-container2 {
+    max-width: 530px;
     padding: 10px;
     padding-top: 0px;
     border: 3px solid #0f101094;
@@ -608,6 +656,8 @@ td.lr {
     justify-content: space-between;
     align-items: center;
 }
+
+
 /* footer{
     background-color: #0a0a0a;
     color: white;

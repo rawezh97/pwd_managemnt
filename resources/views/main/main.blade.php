@@ -14,13 +14,11 @@
 
     <div class="big_head">
         <a href="/start"><img src="/images/pwd_logo.png" class="img_logo" alt=""></a>
+        {{-- <a href="#" onclick="create()"><img src="/images/pwd_logo.png" class="img_logo" alt=""></a> --}}
         
         <div class="search">
-            <form >
                 <input type="text" name="search" id="searchInput" placeholder="Search" class="input_search">
                 {{-- <input type="text" name="search" id="searchInput" onclick="searchData(event)" placeholder="Search" class="input_search"> --}}
-                
-            </form>
         </div>
 
 
@@ -69,35 +67,35 @@
                 count += 1 ;
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${item.note}</td>
                     <td class="lr">
                         <div></div>
                         <div class="usr">
                             <span id="username${count}">${item.username}</span>
                         </div>
-                        <div class="cpy_btn">
+                            <div class="cpy_btn">
                             <a href="#" onclick="copyusr(${count})"><img src="/images/copy.png" class="copy" alt=""></a>
                         </div>
-                        </td>
+                    </td>
                     <td>
                         <input type="password" id="password${count}" value=" ${item.password}">
                         <a href="#" onclick="copypwd(${count})"><img src="/images/copy.png" class="copy" alt=""></a>
                         <a href="#" id="btno" class="eye" onclick="abas(${count})">
-                        <img class="eyeimg" id="eyeimage${count}" src="/images/view.png" alt="">
+                            <img class="eyeimg" id="eyeimage${count}" src="/images/view.png" alt="">
                         </a>    
                     </td>
-                    <td>
-                      <span id="secu${count}" onload="check(${count})"></span>
-                    </td>
-                    <td>${item.link}</td>
-                    <td>
-                        <a href="#" class="create_btn" onclick="edit_localstorage(${count})">Edit_localstorage <img src="/images/edit.png" class="logo_png" alt=""></a>
-                        <a href="#" class="create_btn" onclick="delete_localstorage(${count})">delete <img src="/images/delete.png" class="logo_png" alt=""></a>
+                        <td>
+                        <span id="secu${count}" onload="check(${count})">sdf</span>
+                        </td>
+                        <td>${item.link}</td>
+                        <td>${item.note}</td>
+                    <td class="lr">
+                        <div></div>
+                        <a href="#" class="create_btn edit" onclick="edit_localstorage(${count})">Edit <img src="/images/edit.png" class="logo_png" alt=""></a>
+                        <a href="#" class="" onclick="delete_localstorage(${count})"><img src="/images/red_basket.png" class="basket" alt=""> </a>
                     </td>
                    <!-- <td><input type="checkbox" name="select" value="${count}" id=""></td> -->
                 `;
                 dataList.appendChild(row);
-                
             });
         }
         var count = JSON.parse(localStorage.getItem("savedData"));
@@ -112,7 +110,8 @@
 
     <div class="option_div">
         <div class="create">
-            <a href="/create" class="create_btn c_color ">Create<img src="/images/dashboard.png" class="logo_png create_logo" alt=""></a>
+            {{-- <a href="/create" class="create_btn c_color ">Create<img src="/images/dashboard.png" class="logo_png create_logo" alt=""></a> --}}
+            <a href="#" class="create_btn c_color" onclick="create()">Create<img src="/images/dashboard.png" class="logo_png create_logo" alt=""></a>
         </div>
         
         <div class="modifie_btn">
@@ -150,38 +149,7 @@
 
 
               
-              <div class="form-popup" id="modifyForm">
-                <form action="/update_User" method="post" class="form-container">
-                    @csrf
-                    <div class="p_head">
-                        <div class="profile_head">
-                          <img src="/images/user.png" class="user_p" alt="">
-                          <h1>Profile</h1>
-                        </div>
-                        <div class="num_item">
-                          <span class="pro_equa"></span>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="usr_info">
-                        <h4 for="username">Username : </h4>
-                    </div>
-                  <input type="text" placeholder="Enter username" name="username" value="" required>
-                    
-                  <div  class="usr_info">
-                      <h4 for="email">Email :</h4>               
-                  </div>
-                  <input type="text" placeholder="Enter Email" name="email" value="" required>
-
-                  <div class="usr_info">
-                      <h4 for="psw"><b>New Password : </b></h4>
-                  </div>
-                  <input type="password" placeholder="Enter Password"  name="password" value="" required>
-              
-                  <button type="submit" class="btn up rb">Update</button>
-                  <button type="button" class="btn cancel db" onclick="closeForm()">Delete Acount</button>
-                </form>
-              </div>
+             
               <script>
                 function openForm() {
                   document.getElementById("myForm").style.display = "block";
@@ -245,6 +213,11 @@
 
     </table>
 </form>
+
+
+
+
+
 <script>
     // Function to update the view with the saved data from local storage
     function updateView() {
@@ -420,7 +393,8 @@
                         <td><input value="${item.username}" name="username"></input></td>
                         <td><input value="${item.password}" name="password"></input></td>
                         <td>
-                                <span id="secu${count}" onload="check(${count})"></span>    
+                            <a href="#" class="#" id="action2" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
+
                         </td>
                             <td><input value="${item.link}" name="link"></input></td>
                             <td><input value="${item.note}" name="note"></input></td>
@@ -558,6 +532,141 @@
 
 
 {{-- 333333 --}}
+
+<script>
+        function create(){
+        // let check = document.querySelectorAll('input[name="select"]:checked');
+        // alert(nums);
+        // check.forEach((checkbox) => {nums.push(checkbox.value)});
+        // alert(nums);
+
+        // Retrieve saved data from local storage
+        const savedData = JSON.parse(localStorage.getItem('savedData'));
+
+        // Get the target element where the rows will be displayed
+        const dataList = document.getElementById('dataList');
+
+        // Clear the existing data from the view
+        dataList.innerHTML = '';
+
+        // Display the saved data in the corresponding <td> elements
+
+
+        // alert('checked');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <form action="/store" id="createForm" method="POST">
+    @csrf
+        <tr>
+
+            <td><input type="text" name="username" placeholder="Username" class="create_input"></td>
+            <td><input type="password" name="password" onkeydown="check()" placeholder="Password" class="create_input"></td>
+            <td>
+                <a href="#" class="#" id="action2" onclick="openForm2()" ><img class="dropDOwn2" id="profile2" src="/images/lightbulb.png"  ></a>
+
+            </td>
+            <td><input type="text" name="link" placeholder="link" class="create_input"></td> 
+            <td><input type="text" name="note" placeholder="note" class="create_input"></td>
+            <td><button type="submit" class="update_btn" onclick="saveData(event)">save</button></td>
+
+                
+        </tr>  
+
+</form>`;
+        dataList.appendChild(row);
+
+        
+    }
+    function saveData(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const form = event.target.form; // Get the form element
+
+        // Get the input field values
+        const username = form.elements['username'].value;
+        const password = form.elements['password'].value;
+        const link = form.elements['link'].value;
+        const note = form.elements['note'].value;
+
+        // Get existing data from local storage or initialize an empty array
+        let savedData = JSON.parse(localStorage.getItem('savedData')) || [];
+
+        // Add the new data to the array
+        savedData.push({ note, username, password, link });
+
+        // Save the updated array back to local storage
+        localStorage.setItem('savedData', JSON.stringify(savedData));
+
+        // Reset the form fields
+        form.reset();
+
+        // Update the view
+        updateView();
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-popup2" id="myForm2">
+    <div class="form-container2">
+        <h3 class="info">Strong Password is</h3>
+        <span class="hs">
+            <ul>
+                <li>At least 12 characters long but 14 or more is better.</li>
+                <li>A combination of uppercase letters, lowercase letters, numbers, and symbols.</li>
+                <li>Not a word that can be found in a dictionary or the name of a person, character, product, or organization.</li>
+                <li>Significantly different from your previous passwords.</li>
+            </ul>
+            
+
+           
+            
+            
+            
+            
+            
+            Easy for you to remember but difficult for others to guess. Consider using a memorable phrase like <span class="example">!iLoveMyCat^-^</span> .
+        </span>
+       
+    </div>
+  </div>
+
+
+  
+ 
+  <script>
+    function openForm2() {
+      document.getElementById("myForm2").style.display = "block";
+      document.getElementById("profile2").src = "/images/lightbulbon.png";
+      document.getElementById("action2").onclick = closeForm2;
+      
+    }
+    function modifyForm2() {
+    //   document.getElementById("myForm").style.display = "none";
+      document.getElementById("modifyForm").style.display = "block";
+      document.getElementById("action2").onclick = closeForm2;
+    //   document.getElementById("profile").src = "/images/close.png";
+    //   document.getElementById("action").onclick = "closeForm()";
+    }
+    
+    function closeForm2() {
+        document.getElementById("action2").onclick = openForm2;
+        document.getElementById("profile2").src = "/images/lightbulb.png";
+      document.getElementById("myForm2").style.display = "none";
+      document.getElementById("modifyForm").style.display = "none";
+    
+    }
+    </script>
+
 
 
 

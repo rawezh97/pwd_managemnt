@@ -8,7 +8,9 @@
     </div>
     <div class="getstart_rigth">
         <a href="/start" class="getstart">Get Started</a>
-        <a href="/#" class="getstart about">About Us</a>
+        <a href="https://github.com/rawezh97/pwd_managemnt" target="_blank"><img class="git" src="/images/github2.png" alt=""></a>
+        {{-- <a href="/#" class="getstart about"></a> --}}
+
     </div>
 </header>
 
@@ -26,8 +28,7 @@
     <div class="secound_part">
         <div class="paragraph first">
             <h2 class="p_head">Password Auto checkup </h2>
-            <span class="description"> check password if it's a weak password warning 
-                and also provide the strong password
+            <span class="description"> We're always checking your passwords. If we find a weak one, we'll tell you and help you make it stronger. Keeping you safe is what matters most to us.
             </span>
         </div>
         <div class="gif">
@@ -40,8 +41,8 @@
     <div class="secound_part third">
         <div class="paragraph test">
             <h2 class="p_head">Password Generator</h2>
-            <span class="description">our system provide a password generation feature 
-                that help you to generate a strong password 
+            <span class="description">Struggling to create strong passwords? 
+                Our system can generate robust passwords for you, making your online life more secure.
             </span>
         </div>
         <div class="gif">
@@ -51,10 +52,20 @@
     </div>
     <div class="secound_part">
         <div class="paragraph test2">
+            <h2 class="p_head">Open Source</h2>
+            <span class="description"> This project is open source, meaning anyone can review and access the application's source code.
+            </span>
+        </div>
+        <div class="gif">
+            <img src="/images/opensource.png" class="index_img hub" alt="">
+        </div>
+    </div>
+
+
+    <div class="secound_part third">
+        <div class="paragraph test2">
             <h2 class="p_head">Every thing in your hand</h2>
-            <span class="description"> The collection of your data is not come to our DB 
-                this application store every thing in your system 
-                that mean we dont have ability to know your priavce
+            <span class="description"> Rest assured, your data stays with you. We don't gather your information, everything is stored on your device. Your privacy remains intact.
             </span>
         </div>
         <div class="gif">
@@ -62,6 +73,10 @@
             <img src="/images/type.png" class="index_img" alt="">
         </div>
     </div>
+    
+
+
+
 
 </div>
 
