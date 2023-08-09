@@ -77,7 +77,7 @@
                         </div>
                     </td>
                     <td>
-                        <input type="password" id="password${count}" value=" ${item.password}">
+                        <input type="password" id="password${count}" value="${item.password}">
                         <a href="#" onclick="copypwd(${count})"><img src="/images/copy.png" class="copy" alt=""></a>
                         <a href="#" id="btno" class="eye" onclick="abas(${count})">
                             <img class="eyeimg" id="eyeimage${count}" src="/images/view.png" alt="">
@@ -222,6 +222,7 @@
 <script>
     // Function to update the view with the saved data from local storage
     function updateView() {
+        
         // Retrieve saved data from local storage
         const savedData = JSON.parse(localStorage.getItem('savedData'));
 
@@ -248,7 +249,7 @@
                         </div>
                     </td>
                     <td>
-                        <input type="password" id="password${count}" value=" ${item.password}">
+                        <input type="password" id="password${count}" value="${item.password}">
                         <a href="#" onclick="copypwd(${count})"><img src="/images/copy.png" class="copy" alt=""></a>
                         <a href="#" id="btno" class="eye" onclick="abas(${count})">
                             <img class="eyeimg" id="eyeimage${count}" src="/images/view.png" alt="">
@@ -585,6 +586,7 @@
 
 </form>`;
         dataList.appendChild(row);
+        
 
         
     }
@@ -612,7 +614,8 @@
         form.reset();
 
         // Update the view
-        updateView();
+        // updateView();
+        window.location.reload();
     }
 </script>
 

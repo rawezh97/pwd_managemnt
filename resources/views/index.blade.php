@@ -85,7 +85,7 @@
 
 
     <div class="foot_fotter">
-        <img src="/images/peshawa.png" class="peshawa" alt="">
+       <a href=""></a> <img src="/images/peshawa.png" class="peshawa" alt="">
 
     </div>
 
